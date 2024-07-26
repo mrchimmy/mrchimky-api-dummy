@@ -1,5 +1,5 @@
 {
-  "name": "functions",
+  "name": "mrchimky-api",
   "version": "1.0.0",
   "description": "",
   "type": "module",
@@ -22,8 +22,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "firebase-functions": "^5.0.1",
     "jsonwebtoken": "^9.0.2",
+    "memory-cache": "^0.2.0",
     "typescript": "^5.5.4",
     "zod": "^3.23.8"
   },
