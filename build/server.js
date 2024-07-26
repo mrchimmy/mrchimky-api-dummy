@@ -10,7 +10,7 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 exports.app = (0, express_1.default)();
-const port = process.env.APP_PORT || 3001;
+const port = process.env.APP_PORT || 80;
 exports.app.use((0, cors_1.default)());
 exports.app.use(body_parser_1.default.urlencoded({ extended: false }));
 exports.app.use(body_parser_1.default.json());
