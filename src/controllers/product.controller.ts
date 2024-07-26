@@ -30,7 +30,8 @@ export function index(req: Request, res: Response) {
   const { quantity } = req.body;
   
   if (myMagicCache) {
-    res.send({ ...myMagicCache })
+    return res.json({ ...myMagicCache });
+
   } else {
     const products: ProductType[] = faker.helpers.multiple(randomProducts, {
       count: quantity ? quantity : 10,
@@ -42,8 +43,7 @@ export function index(req: Request, res: Response) {
       products
     };
     myMagicCache = json
-    res.send({ ...myMagicCache })
-    return res.json(json);
+    return res.json({ ...myMagicCache });
   }
 };
   
