@@ -1,4 +1,4 @@
-import { UserType } from "./UserType"
+import { UserType } from "./UserType";
 
 export type ProductType = {
     productId: string
@@ -9,4 +9,4 @@ export type ProductType = {
     sold: number
     favorite: number
     user: UserType
-}
+};

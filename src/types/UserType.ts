@@ -6,4 +6,4 @@ export type UserType = {
     password: string
     birthdate: Date
     created_at: Date
-}
+};

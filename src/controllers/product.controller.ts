@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker'
+import { faker } from '@faker-js/faker';
 import type { Request, Response } from "express";
 import { ProductType } from "../types/ProductType";
 
@@ -20,20 +20,30 @@ function randomProducts(): ProductType {
       birthdate: faker.date.birthdate(),
       created_at: faker.date.past()
     }
-  }
-}
+  };
+};
+
+let myMagicCache: any;
+
 
 export function index(req: Request, res: Response) {
   const { quantity } = req.body;
-  const products: ProductType[] = faker.helpers.multiple(randomProducts, {
-    count: quantity ? quantity : 10,
-  });
-  const json = {
-    status: 'ok',
-    code: 200,
-    quantity: quantity ? quantity : 10,
-    products
+  
+  if (myMagicCache) {
+    res.send({ ...myMagicCache })
+  } else {
+    const products: ProductType[] = faker.helpers.multiple(randomProducts, {
+      count: quantity ? quantity : 10,
+    });
+    const json = {
+      status: 'ok',
+      code: 200,
+      quantity: quantity ? quantity : 10,
+      products
+    };
+    myMagicCache = json
+    res.send({ ...myMagicCache })
+    return res.json(json);
   }
-  return res.json(json)
-}
+};
   
