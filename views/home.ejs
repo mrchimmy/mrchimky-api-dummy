@@ -19,7 +19,7 @@
         <section class="content" style="margin-top: 2rem;" id="whatisdummeyapi">
             <div class="blog">
                 <h1>Dummy API คืออะไร?</h1>
-                <p>Dummy API คือ API สำหรับสร้างชุดข้อมูลตัวอย่าง เช่น ข้อมูลสินค้า ข้อมูลบุคคล เป็นต้น <br> API ตัวนี้ออกแบบมาเพื่อให้น้องๆเพื่อนๆพี่ๆที่เริ่มใช้ API ได้ลองเล่นและใช้งาน เพื่อนทำความเข้าใจและศึกษาการทำงานของ Source Code</p>
+                <p>Dummy API คือ API สำหรับสร้างชุดข้อมูลตัวอย่าง เช่น ข้อมูลสินค้า ข้อมูลบุคคล เป็นต้น <br> API ตัวนี้ออกแบบมาเพื่อให้น้องๆเพื่อนๆพี่ๆที่เริ่มใช้ API ได้ลองเล่นและใช้งาน เพื่อนทำความเข้าใจและศึกษาการทำงานของ RESTful API และยังมี Source Code ที่ผมได้ทำเอาใว้ สำหรับท่านใดที่อยากศึกษาสามารถนำโค้ตผมไปใช้ได้เลย แต่ไม่อนุญาตให้นำโค้ตชุดนี้ไปขายหรือกระทำการใดๆในทางที่ไม่ดี</p>
             </div>
             <div class="sect_2">
                 <div class="shadow" style="display: flex;">    
@@ -29,7 +29,7 @@
         </section>
         <section class="content_howto" style="margin-top: 4rem;">
             <div class="content_1">
-                <h1 style="text-align: center;">วิธีการการใช้งาน</h1>
+                <h1 style="text-align: center;">วิธีการใช้งาน</h1>
                 <p>ผมไม่ได้ทำคำแนะนำใว้เป็นเว็บเพจนี้ เนื่องจากใช้เวลานานและออกแบบยากเกินไป ผมเลยเขียนทุกอย่างใว้บน Github แทน ผมได้เขียนรายละเอียดและวิธีการใช้งานใว้ที่ Github ของผมแล้ว ทุกๆท่านสามารถเข้าไปอ่านได้เลยครับผม</p>
                 <hr style="border-color: rgb(180, 180, 180, .6); margin-block: .5rem;">
                 <p><b style="color: red;">*</b> หากใครมี Feedback หรืออนาคต API v2 อยากให้มีระบบอะไรเพิ่มขึ้นมา(ที่เป็นไปได้) ผมจะทำมาเป็นตัวอย่างให้ครับผม</p>
@@ -45,7 +45,7 @@
         <section class="whoischim" style="margin-top: 4rem;">
             <div>
                 <h1>ใครคือ MrChimKy???</h1>
-                <p>MrChimKy เป็นชื่อในวงการของผม ผมชื่อเล่นชื่อ ชิม แต่หลายๆคนชอบเรียก ซิม คิม ชิน ชิมมี่ แต่ไม่เป็นไรมีหลายชื่อเฟี้ยวดี</p>
+                <p>MrChimKy เป็นชื่อในวงการของผม ผมชื่อเล่น ชิม แต่หลายๆคนชอบเรียก ซิม คิม ชิน ชิมมี่ แต่ไม่เป็นไรมีหลายชื่อเฟี้ยวดี</p>
                 <p>ผมศึกษา เรียน และทำงานเกี่ยวกับ Programming มา 2-3 ปี ประสบการณ์เป็น Freelance 1.5 ปี ณ ปัจจุบันศึกษาอยู่ วิทยาลัยเทคนิคนครราชสีมา ระดับปวส. สาขาวิชาเทคโนโลยีคอมพิวเตอร์ (Computer Technology) สาขางานคอมพิวเตอร์ฮาร์ดแวร์ (Computer Hardware)</p>
                 <p>งานอดิเรกคือ Freelance Full-Stack และมีทำงานช่างบ้างประปราย เช่น ซ่อมเครื่องใช้ไฟฟ้า งานเกี่ยวกับคอมพิวเตอร์ หรือช่วยเหลือเรื่องโปรเจคจบของใครหลายคน</p>
             </div>
@@ -55,7 +55,7 @@
             </div>
         </section>
         <section class="social" style="margin-top: 4rem;">
-            <h1 style="font-size: 32px;">โซเชียวมีเดีย (Social Media)</h1>
+            <h1 style="font-size: 32px;">โซเชียลมีเดีย (Social Media)</h1>
             <div class="social-link">
                 <a href="https://facebook.com/mrchimky" target="_blank">
                     <img src="public/facebook.png" alt="Facebook" style="width: 64px;">
@@ -82,14 +82,14 @@
             </a>
         </section>
     </main>
-    <footer class="footer">
-        <p>2024 | Dummy API make with ❤️ by MrChimKy, MrChimKy Developments</p>
-    </footer>
+
+    <%- include('layouts/footer') %>       
+
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
         var typed = new Typed('#typing', {
           strings: ['สวัสดีครับผม MrChimKy', 'นี่เป็นเว็บ Dummy API สำหรับคนที่อยากลองเล่น API'],
-          typeSpeed: 70,
+          typeSpeed: 80,
           loop: true
         });
       </script>
