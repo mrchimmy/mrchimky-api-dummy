@@ -25,7 +25,7 @@ function randomProducts(): ProductType {
   };
 }
 
-export async function index(req: Request, res: Response) {
+export async function getProducts(req: Request, res: Response) {
 
   const quantity = req.body.quantity || req.query.quantity;
   const token = req.body.token || req.query.token;

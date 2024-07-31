@@ -14,7 +14,7 @@ const ZodToken = z.object({
   token: z.string({ message: "กรุณากรอก Key token" }).uuid({ message: "รูปแบบไม่ใช่ UUID" }),
   version: z.string({ message: "กรุณากรอก Key version"})
 });
-export async function productCacheMiddleware(
+export async function CacheMiddleware(
   req: Request,
   res: Response,
   next: NextFunction
