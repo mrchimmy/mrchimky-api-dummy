@@ -1,6 +1,8 @@
-import { faker } from '@faker-js/faker';
+import { faker } from "@faker-js/faker";
 import type { Request, Response } from "express";
 import { ProductType } from "../types/ProductType";
+import { memoryCache } from "../utils/caching";
+
 
 function randomProducts(): ProductType {
   return {
@@ -18,32 +20,23 @@ function randomProducts(): ProductType {
       email: faker.internet.email(),
       password: faker.internet.password(),
       birthdate: faker.date.birthdate(),
-      created_at: faker.date.past()
-    }
+      created_at: faker.date.past(),
+    },
   };
-};
+}
 
-let myMagicCache: any;
+export async function index(req: Request, res: Response) {
+  const { quantity, token, version } = req.body;
 
-
-export function index(req: Request, res: Response) {
-  const { quantity } = req.body;
-  
-  if (myMagicCache) {
-    return res.json({ ...myMagicCache });
-
-  } else {
-    const products: ProductType[] = faker.helpers.multiple(randomProducts, {
-      count: quantity ? quantity : 10,
-    });
-    const json = {
-      status: 'ok',
-      code: 200,
-      quantity: quantity ? quantity : 10,
-      products
-    };
-    myMagicCache = json
-    return res.json({ ...myMagicCache });
-  }
-};
-  
+  const products: ProductType[] = faker.helpers.multiple(randomProducts, {
+    count: quantity ? quantity : 10,
+  });
+  const json = {
+    status: "ok",
+    code: 200,
+    quantity: quantity ? quantity : 10,
+    products,
+  };
+  await memoryCache.set(token, { version: version, data: json });
+  return res.status(200).json(json);
+}
