@@ -6,23 +6,22 @@ import { ProductType } from "../types/ProductType";
 
 type Types = {
   token: string,
-  version: number,
+  version: string,
   data: ProductType[]
 }
 
 const ZodToken = z.object({
-  token: z.string({ message: "กรุณากรอก token" }).uuid({ message: "รูปแบบไม่ใช่ UUID" }),
+  token: z.string({ message: "กรุณากรอก Key token" }).uuid({ message: "รูปแบบไม่ใช่ UUID" }),
+  version: z.string({ message: "กรุณากรอก Key version"})
 });
 export async function productCacheMiddleware(
   req: Request,
   res: Response,
   next: NextFunction
 ) {
-  
   const token = req.body.token || req.query.token;
-  const validatedFields = ZodToken.safeParse({
-    token
-  }); // สมมติว่ามี token อยู่ใน body ของ request
+  const version = req.body.version || req.query.version;
+  const validatedFields = ZodToken.safeParse({token, version}); // สมมติว่ามี token อยู่ใน body ของ request
   if (!validatedFields.success) {
       return res.status(400).json({
         status: 'bad',
@@ -30,9 +29,8 @@ export async function productCacheMiddleware(
         errors: validatedFields.error.flatten().fieldErrors
       });
   }
-  const version = req.body.version;
   const cachedData = await memoryCache.get(validatedFields.data.token) as Types;
-  if (cachedData && cachedData.version === version) {
+  if (cachedData && cachedData.version === validatedFields.data.version) {
     // ส่งข้อมูลจาก cache ถ้ามีและ version ตรงกัน
     res.json(cachedData.data);
   } else {

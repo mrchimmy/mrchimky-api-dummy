@@ -6,7 +6,7 @@ function randomPosts() {
   return {
     postId: faker.string.uuid(),
     image: faker.image.url(),
-    title: faker.vehicle.
+    title: faker.commerce.
     description: faker.commerce.productDescription(),
     price: parseFloat(faker.commerce.price()),
     favorite: faker.number.int({ max: 299 }),

@@ -26,7 +26,10 @@ function randomProducts(): ProductType {
 }
 
 export async function index(req: Request, res: Response) {
-  const { quantity, token, version } = req.body;
+
+  const quantity = req.body.quantity || req.query.quantity;
+  const token = req.body.token || req.query.token;
+  const version = req.body.version || req.query.version;
 
   const products: ProductType[] = faker.helpers.multiple(randomProducts, {
     count: quantity ? quantity : 10,
