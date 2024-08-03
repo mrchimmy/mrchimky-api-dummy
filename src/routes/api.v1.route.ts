@@ -2,6 +2,11 @@ import { getProducts } from '../controllers/product.controller';
 import { Router } from 'express';
 import { CacheMiddleware } from '../middlewares/product.middleware';
 import { getUsers } from '../controllers/user.controller';
+import { getCurrentWeather } from '../controllers/weather.controller';
+
+// Cache
+import apicache from 'apicache'
+const cache = apicache.middleware;
 
 const router = Router(); 
 router.get('/', (req, res) => {
@@ -20,5 +25,6 @@ router.get('/', (req, res) => {
 })
 router.get('/product/get', CacheMiddleware , getProducts);
 router.get('/user/get', CacheMiddleware , getUsers);
+router.get('/weather/current', cache('5 minutes'), getCurrentWeather);
 
 export default router;
