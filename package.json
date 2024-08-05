@@ -20,6 +20,7 @@
     "@types/express": "^4.17.21",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20.14.12",
+    "@types/qrcode": "^1.5.5",
     "apicache": "^1.6.3",
     "axios": "^1.7.2",
     "body-parser": "^1.20.2",
@@ -29,6 +30,7 @@
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
+    "qrcode": "^1.5.3",
     "typescript": "^5.5.4",
     "zod": "^3.23.8"
   },

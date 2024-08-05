@@ -6,6 +6,7 @@ import { getCurrentWeather } from '../controllers/weather.controller';
 
 // Cache
 import apicache from 'apicache'
+import { getQrCode } from '../controllers/qrcode.controller';
 const cache = apicache.middleware;
 
 const router = Router(); 
@@ -26,5 +27,7 @@ router.get('/', (req, res) => {
 router.get('/product/get', CacheMiddleware , getProducts);
 router.get('/user/get', CacheMiddleware , getUsers);
 router.get('/weather/current', cache('5 minutes'), getCurrentWeather);
+
+router.get('/qrcode/get', getQrCode);
 
 export default router;

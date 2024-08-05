@@ -31,6 +31,8 @@ html, body {
     margin-inline: auto;
     width: 100%;
     margin-bottom: 4rem;
+    padding: 1rem;
+    padding-top: 0;
 }
 
 .navbar {
@@ -63,7 +65,7 @@ html, body {
     }
 }
 .content {
-    padding: 1rem;
+    /* padding: 1rem; */
     display: flex;
     gap: 1.5rem;
     flex-direction: column;
@@ -107,7 +109,7 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
+    /* padding: 1rem; */
 }
 .content_howto .content_1 {
     max-width: 500px;
@@ -141,8 +143,6 @@ html, body {
     } 
 }
 .whoischim {
-    display: grid;
-    padding: 1rem;
     & h1 {
         font-size: 32px;
     }
@@ -158,12 +158,12 @@ html, body {
 .whoischim .Albam .albam-1 {
     position: absolute;
     top: 5%;
-    left: 15%;
+    left: 5%;
 }
 .whoischim .Albam .albam-2 {
     position: absolute;
     top: 55%;
-    left: 40%;
+    left: 30%;
 }
 .whoischim .Albam img {
     width: 200px;
@@ -202,7 +202,12 @@ html, body {
 }
 
 @media (min-width: 640px) {
- 
+    .whoischim .Albam .albam-1 {
+        left: 50%;
+    }
+    .whoischim .Albam .albam-2 {
+        left: 70%;
+    }
 }
 @media (min-width: 768px) {
     .container {
@@ -215,7 +220,14 @@ html, body {
         max-width: 960px;
     } 
     .whoischim {
+        display: grid;
         grid-template-columns: 1fr 420px;
+    }
+    .whoischim .Albam .albam-1 {
+        left: 15%;
+    }
+    .whoischim .Albam .albam-2 {
+        left: 40%;
     }
 }
 @media (min-width: 1280px) {

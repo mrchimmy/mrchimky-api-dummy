@@ -1,5 +1,5 @@
 import axios from "axios";
-import { query, type Request, type Response } from 'express'
+import type {Request, Response} from 'express'
 import { z } from "zod";
 
 const ZodQuery = z.object({
