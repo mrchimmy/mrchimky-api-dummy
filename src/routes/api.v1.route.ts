@@ -11,20 +11,9 @@ import { checkToken } from '../middlewares/checkToken.middleware';
 const cache = apicache.middleware;
 
 const router = Router(); 
-router.get('/', (req, res) => {
-    return res.json({
-        status: "ok",
-        code: 200,
-        message: "สวัสดีนี่คือ API Dummy สำหรับคนอยากลองเล่น API สามารถทำไปใช้ได้เลยยย คำเตือนไม่เหมาะกับการนำไปใช้จริง เหมาะสำหรับการลองใช้ หรือ testing เท่านั้น!! เตือนแล้วนะ",
-        author: 'MrChimKy, MrChimKy Developments',
-        contacts: {
-            facebook: 'https://facebook.com/mrchimky',
-            youtube: 'https://youtube.com/@mrchimky',
-            youtube_game: 'https://youtube.com/@mrchxmer',
-            github: 'https://github.com/mrchimmy'
-        }
-    });
-})
+// router.get('/', (req, res) => {
+   
+// })
 router.get('/product/get', checkToken, CacheMiddleware , getProducts);
 router.get('/user/get', checkToken, CacheMiddleware , getUsers);
 router.get('/weather/current', checkToken, cache('5 minutes'), getCurrentWeather);
