@@ -32,6 +32,7 @@ const callAPI = async () => {
     return response.data
 }
 ```
+ตัวอย่างการใข้งานข้อมูลจาก QRCode data
 ```javascript
 const data = response.data.data; // ข้อมูลจาก QRCode API
 
