@@ -13,7 +13,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/public', express.static(path.join('public/css')));
 app.use('/public', express.static(path.join('public/image')));
-app.use('/', express.static(path.join('views')));
+
+app.get('/', (req, res) => {
+  res.sendFile('views/index.html', { root: '.' });
+});
 
 import APIRouter from './routes/api.v1.route';
 
