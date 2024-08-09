@@ -1,6 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
 import { z } from "zod";
-import { memoryCache } from "../utils/caching";
 import { ProductType } from "../types/ProductType";
 
 type Types = {
@@ -29,12 +28,5 @@ export async function CacheMiddleware(
         errors: validatedFields.error.flatten().fieldErrors
       });
   }
-  const cachedData = await memoryCache.get(validatedFields.data.token) as Types;
-  if (cachedData && cachedData.version === validatedFields.data.version) {
-    // ส่งข้อมูลจาก cache ถ้ามีและ version ตรงกัน
-    res.json(cachedData.data);
-  } else {
-    // ถ้าไม่มี cache หรือ version ไม่ตรงกัน ให้ไปทำงานต่อใน route handler
-    next();
-  }
+ next()
 }

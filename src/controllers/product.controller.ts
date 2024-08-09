@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 import type { Request, Response } from "express";
 import { ProductType } from "../types/ProductType";
-import { memoryCache } from "../utils/caching";
+
 
 
 function randomProducts(): ProductType {
@@ -40,6 +40,7 @@ export async function getProducts(req: Request, res: Response) {
     quantity: quantity ? quantity : 10,
     products,
   };
-  await memoryCache.set(token, { version: version, data: json });
+  // res.set('Cache-Control', 'public, max-age=3600');
+  // await memoryCache.set(token, { version: version, data: json });
   return res.status(200).json(json);
 }

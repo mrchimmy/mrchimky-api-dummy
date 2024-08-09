@@ -1,6 +1,6 @@
-import { createCache, memoryStore } from 'cache-manager';
+import apicache from 'apicache'
 
-export const memoryCache = createCache(memoryStore({
-  max: 100,
-  ttl: 10 * 1000 /*milliseconds*/,
-}));
+
+export const cacheVersion = apicache.options({
+  appendKey: (req, res) => `${req.headers.authorization}-${req.body.version}`,
+}).middleware;
