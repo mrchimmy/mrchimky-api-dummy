@@ -15,10 +15,6 @@ app.use('/public', express.static(path.join('public/css')));
 app.use('/public', express.static(path.join('public/image')));
 app.use('/', express.static(path.join('views')));
 
-app.get('/', (req, res) => {
-    return res.render('home');
-});
-
 import APIRouter from './routes/api.v1.route';
 
 app.use('/api/v1', APIRouter);
