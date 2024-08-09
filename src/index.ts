@@ -14,7 +14,6 @@ app.use(bodyParser.json());
 app.use('/public', express.static(path.join('public/css')));
 app.use('/public', express.static(path.join('public/image')));
 app.use('/', express.static(path.join('views')));
-app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
     return res.render('home');
