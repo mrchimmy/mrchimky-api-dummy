@@ -11,13 +11,13 @@ const port = process.env.APP_PORT || 3001;
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use('/public', express.static(path.join('public/css')));
-app.use('/public', express.static(path.join('public/image')));
-app.set('view engine', 'ejs');
+// app.use('/public', express.static(path.join('public/css')));
+// app.use('/public', express.static(path.join('public/image')));
+// app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-    return res.render('home');
-});
+// app.get('/', (req, res) => {
+//     return res.render('home');
+// });
 
 import APIRouter from './routes/api.v1.route';
 
