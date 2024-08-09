@@ -34,10 +34,10 @@ router.get('/test', (req, res) => {
     console.log(apicache.getIndex());
     console.log(apicache.getPerformance());
 })
-router.get('/product/get', checkToken, verifyRequest, cacheVersion('1 minutes') , getProducts);
-router.get('/user/get', checkToken, verifyRequest, cacheVersion('1 minutes') , getUsers);
+router.get('/product/get', checkToken, verifyRequest, cacheVersion('5 minutes') , getProducts);
+router.get('/user/get', checkToken, verifyRequest, cacheVersion('5 minutes') , getUsers);
 router.get('/weather/current', checkToken, cache('5 minutes'), getCurrentWeather);
 
-router.get('/qrcode/get', checkToken, getQrCode);
+router.get('/qrcode/get', checkToken, verifyRequest, cacheVersion('5 minutes'), getQrCode);
 
 export default router;
