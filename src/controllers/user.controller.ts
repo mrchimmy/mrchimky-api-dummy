@@ -23,7 +23,7 @@ function ramdomUsers() : UserType {
 
 export async function getUsers(req: Request, res: Response) {
 
-  const quantity = req.body.quantity || req.query.quantity;
+  const quantity = req.body.quantity;
 
   const users: UserType[] = faker.helpers.multiple(ramdomUsers, {
     count: quantity ? quantity : 10,
