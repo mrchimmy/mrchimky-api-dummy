@@ -11,11 +11,11 @@ const port = process.env.APP_PORT || 3001;
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use('/public', express.static(path.join('public/css')));
-app.use('/public', express.static(path.join('public/image')));
+app.use('/public', express.static(path.join(process.cwd(), 'public/css')));
+app.use('/public', express.static(path.join(process.cwd(), 'public/image')));
 
 app.get('/', (req, res) => {
-  res.sendFile('views/index.html', { root: '.' });
+  res.sendFile(path.join(process.cwd(), 'views/index.html'));
 });
 
 import APIRouter from './routes/api.v1.route';
