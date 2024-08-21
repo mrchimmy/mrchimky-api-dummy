@@ -101,7 +101,7 @@ html, body {
     justify-content: end;
 }
 .content > .sect_2 img {
-    max-width: 500px;
+    max-width: 550px;
     width: 100%;
     border-radius: .5rem;
 }
@@ -180,6 +180,13 @@ html, body {
     display: flex;
     gap: 1rem;
     align-items: center;
+}
+.social .social-link a {
+    transition: .2s;
+}
+.social .social-link a:hover {
+    transform: scale(.90);
+    opacity: .8;
 }
 .recommend-program {
     display: flex;
