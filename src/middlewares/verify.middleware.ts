@@ -29,5 +29,6 @@ export async function verifyRequest(
         errors: validatedFields.error.flatten().fieldErrors
       });
   }
- next();
+  // next() คำสั่งให้รัน middleware ถัดไป หรือ controller ถัดไป
+  next();
 }

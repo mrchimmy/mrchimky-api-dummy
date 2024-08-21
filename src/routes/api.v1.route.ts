@@ -30,10 +30,6 @@ router.get('/', (req, res) => {
         }
     });
 })
-router.get('/test', (req, res) => {
-    console.log(apicache.getIndex());
-    console.log(apicache.getPerformance());
-})
 router.get('/product/get', checkToken, verifyRequest, cacheVersion('5 minutes') , getProducts);
 router.get('/user/get', checkToken, verifyRequest, cacheVersion('5 minutes') , getUsers);
 router.get('/weather/current', checkToken, cache('5 minutes'), getCurrentWeather);
